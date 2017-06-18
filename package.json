@@ -1,0 +1,23 @@
+{
+  "name": "app-dipy-tracking",
+  "version": "1.0.0",
+  "description": "multishell tracking of white matter tracts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start.sh",
+    "stop": "stop.sh",
+    "status": "status.sh"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brain-life/app-dipy-tracking.git"
+  },
+  "author": "Aman Arya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brain-life/app-dipy-tracking/issues"
+  },
+  "homepage": "https://github.com/brain-life/app-dipy-tracking#readme"
+}
