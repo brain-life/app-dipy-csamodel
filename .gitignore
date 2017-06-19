@@ -1,2 +1,4 @@
 config1.json
 *~
+.idea/*
+.DS_Store

@@ -1,14 +1,14 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=16:dc2,walltime=0:45:00
+#PBS -l nodes=4:ppn=16:dc2,walltime=0:45:00
 #PBS -N app-dipy-csamodel
 #PBS -V
 
-ENV="IUHPC"
+#ENV="IUHPC"
 
 if [ $ENV == "IUHPC" ]; then
 	cd $PBS_O_WORKDIR
 	module unload python
-	module load dipy
+	module load anaconda2
 fi
 
 #matlab -nodisplay -nosplash -r main
