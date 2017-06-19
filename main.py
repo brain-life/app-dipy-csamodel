@@ -10,6 +10,7 @@ from dipy.data import default_sphere
 from dipy.direction import peaks_from_model
 from dipy.io.peaks import save_peaks, load_peaks
 
+
 env = os.environ['ENV']
 if env == 'IUHPC':
     sys.path.append("/N/dc2/projects/lifebid/code/aarya/dipy")
@@ -57,6 +58,6 @@ def main():
                                  min_separation_angle=45,
                                  mask=wm_mask)
     print('Generated peaks: ' +  str(time.time() - start))
-    save_peaks('peaks.pam5', csa_peaks)
+    save_peaks('csa_peaks.pam5', csa_peaks)
 
 main()

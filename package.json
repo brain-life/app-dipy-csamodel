@@ -1,23 +1,22 @@
 {
-  "name": "app-dipy-tracking",
+  "name": "app-dipy-csamodel",
   "version": "1.0.0",
-  "description": "multishell tracking of white matter tracts",
+  "description": "create peaks from csa model",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "start.sh",
     "stop": "stop.sh",
     "status": "status.sh"
-
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brain-life/app-dipy-tracking.git"
+    "url": "https://github.com/brain-life/app-dipy-csamodel.git"
   },
   "author": "Aman Arya",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brain-life/app-dipy-tracking/issues"
+    "url": "https://github.com/brain-life/app-dipy-csamodel/issues"
   },
-  "homepage": "https://github.com/brain-life/app-dipy-tracking#readme"
+  "homepage": "https://github.com/brain-life/app-dipy-csamodel#readme"
 }
