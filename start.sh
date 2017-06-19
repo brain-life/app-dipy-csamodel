@@ -8,8 +8,6 @@ ENV="IUHPC"
 rm -f finished
 
 if [ $ENV == "IUHPC" ]; then
-	
-	
 	#jobid=`qsub $SERVICE_DIR/submit.pbs`
 	jobid=`qsub -q preempt $SERVICE_DIR/submit.pbs`
 	echo $jobid > jobid

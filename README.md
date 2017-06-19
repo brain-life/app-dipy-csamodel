@@ -1,2 +1,2 @@
-# app-dipy-tracking
-Runs multi-shell tractography 
+# app-dipy-csamodel
+Creates a CSA model and saves peaks

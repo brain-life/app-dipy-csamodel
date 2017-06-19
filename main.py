@@ -2,21 +2,19 @@ import time
 import numpy as np
 import nibabel as nib
 import json
+import os, sys
 from dipy.core.gradients import gradient_table
-from dipy.viz import fvtk, actor, window
-from dipy.viz.colormap import line_colors
-from dipy.tracking import utils
 from dipy.io.gradients import read_bvals_bvecs
 from dipy.reconst.shm import CsaOdfModel
 from dipy.data import default_sphere
 from dipy.direction import peaks_from_model
-from dipy.tracking.local import ThresholdTissueClassifier
-from dipy.tracking.local import LocalTracking
-from nibabel.streamlines import Tractogram, save
-from dipy.reconst.csdeconv import (ConstrainedSphericalDeconvModel,
-                                   auto_response)
-from dipy.direction import ProbabilisticDirectionGetter
 from dipy.io.peaks import save_peaks, load_peaks
+
+env = os.environ['ENV']
+if env == 'IUHPC':
+    sys.path.append("/N/dc2/projects/lifebid/code/aarya/dipy")
+if env == 'VM':
+    sys.path.append("/usr/local/dipy") #add this on jetstream
 
 def main():
     start = time.time()
@@ -27,6 +25,8 @@ def main():
     # Load the data
     dmri_image = nib.load(config['data_file'])
     dmri = dmri_image.get_data()
+    aparc_im = nib.load(config['data_fs_seg'])
+    aparc = aparc_im.get_data()
     end = time.time()
     print('Loaded Files: ' + str((end - start)))
 
