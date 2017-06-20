@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 #return code 0 = running
