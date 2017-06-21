@@ -13,7 +13,7 @@ from dipy.io.peaks import save_peaks, load_peaks
 
 env = os.environ['ENV']
 if env == 'IUHPC':
-    sys.path.append("/N/dc2/projects/lifebid/code/aarya/dipy")
+    sys.path.append("/N/u/aryaam/Karst/github_repos/dipy")
 if env == 'VM':
     sys.path.append("/usr/local/dipy") #add this on jetstream
 
