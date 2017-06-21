@@ -11,6 +11,7 @@ if [ $ENV == "IUHPC" ]; then
 	module load anaconda2
 fi
 
+export PYTHONPATH=/N/u/aryaam/Karst/github_repos/dipy
 #matlab -nodisplay -nosplash -r main
 nohup time python $SERVICE_DIR/main.py
 
