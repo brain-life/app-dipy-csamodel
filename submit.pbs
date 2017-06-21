@@ -14,7 +14,7 @@ fi
 #matlab -nodisplay -nosplash -r main
 nohup time python $SERVICE_DIR/main.py
 
-if [-s csa_peaks.pam5 ];
+if [ -s csa_peaks.pam5 ];
 then 
 	echo 0 > finished
 else 
