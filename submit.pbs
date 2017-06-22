@@ -9,10 +9,15 @@ if [ $ENV == "IUHPC" ]; then
 	cd $PBS_O_WORKDIR
 	module unload python
 	module load anaconda2
+	export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/dipy
+	export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/nibabel
 fi
 
-export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/dipy
-export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/nibabel
+if [ $ENV == "VM" ]; then
+	export PYTHONPATH=$PYTHONPATH:/usr/local/dipy
+	export PYTHONPATH=$PYTHONPATH:/usr/local/nibabel
+fi
+
 #matlab -nodisplay -nosplash -r main
 nohup time python $SERVICE_DIR/main.py
 
