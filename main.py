@@ -10,13 +10,6 @@ from dipy.data import default_sphere
 from dipy.direction import peaks_from_model
 from dipy.io.peaks import save_peaks, load_peaks
 
-
-env = os.environ['ENV']
-if env == 'IUHPC':
-    sys.path.append("/N/u/aryaam/Karst/github_repos/dipy")
-if env == 'VM':
-    sys.path.append("/usr/local/dipy") #add this on jetstream
-
 def main():
     start = time.time()
 
