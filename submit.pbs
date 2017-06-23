@@ -8,8 +8,16 @@
 [ $PBS_O_WORKDIR ] && cd $PBS_O_WORKDIR
 
 if [ $ENV == "IUHPC" ]; then
-	module unload python
-	module load anaconda2
+	
+	if [ $HPC == "KARST" ]; then
+		module unload python
+		module load anaconda2
+	fi
+	if [ $HPC == "CARBONATE" ]; then
+		module unload python
+		module load anaconda/python2.7
+	fi
+	
 	export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/dipy
 	export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/nibabel
 fi
