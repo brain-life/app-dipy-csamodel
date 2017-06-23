@@ -5,8 +5,9 @@
 
 #ENV="IUHPC"
 
+[ $PBS_O_WORKDIR ] && cd $PBS_O_WORKDIR
+
 if [ $ENV == "IUHPC" ]; then
-	cd $PBS_O_WORKDIR
 	module unload python
 	module load anaconda2
 	export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/dipy
@@ -19,7 +20,7 @@ if [ $ENV == "VM" ]; then
 fi
 
 #matlab -nodisplay -nosplash -r main
-nohup time python $SERVICE_DIR/main.py
+time python $SERVICE_DIR/main.py
 
 if [ -s csa_peaks.pam5 ];
 then 
