@@ -12,12 +12,12 @@ if [ $ENV == "IUHPC" ]; then
 	if [ $HPC == "KARST" ]; then
 		module unload python
 		module load anaconda2
-		module load freesurfer
+		module load freesurfer/6.0.0
 	fi
 	if [ $HPC == "CARBONATE" ]; then
 		module unload python
 		module load anaconda/python2.7
-		module load freesurfer
+		module load freesurfer/6.0.0
 	fi
 	
 	export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/dipy
