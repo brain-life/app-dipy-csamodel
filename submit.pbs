@@ -9,6 +9,7 @@ if [ $ENV == "IUHPC" ]; then
 	cd $PBS_O_WORKDIR
 	module unload python
 	module load anaconda2
+	module load freesurfer
 	export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/dipy
 	export PYTHONPATH=$PYTHONPATH:/N/u/aryaam/Karst/github_repos/nibabel
 fi
@@ -18,8 +19,12 @@ if [ $ENV == "VM" ]; then
 	export PYTHONPATH=$PYTHONPATH:/usr/local/nibabel
 fi
 
+input_nii_gz=`$SERVICE_DIR/jq .data_file config.json`
+data_seg = `$SERVICE_DIR/jq .freesurfer config.json` + `/mri/aparc+aseg.mgz`
+mri_label2vol --seg data_seg --temp input_nii_gz --regheader data_seg --o input_nii_gz
+
 #matlab -nodisplay -nosplash -r main
-nohup time python $SERVICE_DIR/main.py
+time python $SERVICE_DIR/main.py
 
 if [ -s csa_peaks.pam5 ];
 then 
