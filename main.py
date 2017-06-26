@@ -20,7 +20,7 @@ def main():
     dmri_image = nib.load(config['data_file'])
     dmri = dmri_image.get_data()
     print('Dmri' + str(dmri.shape))
-    aparc_im = nib.load(config['freesurfer'] + "/mri/aparc+aseg.mgz")
+    aparc_im = nib.load(config['freesurfer'] + "/mri/aparc+aseg.nii.gz")
     aparc = aparc_im.get_data()
     print('Aparc' + str(aparc.shape))
     end = time.time()
