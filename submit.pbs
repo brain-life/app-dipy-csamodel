@@ -29,6 +29,10 @@ if [ $ENV == "VM" ]; then
 	export PYTHONPATH=$PYTHONPATH:/usr/local/nibabel
 fi
 
+input_nii_gz=`$SERVICE_DIR/jq .data_file config.json`
+data_seg = `$SERVICE_DIR/jq .freesurfer config.json` + `/mri/aparc+aseg.mgz`
+mri_label2vol --seg data_seg --temp input_nii_gz --regheader data_seg --o data_seg/aparc+aseg.nii.gz
+
 #matlab -nodisplay -nosplash -r main
 time python $SERVICE_DIR/main.py
 
