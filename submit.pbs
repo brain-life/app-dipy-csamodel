@@ -7,6 +7,8 @@
 
 [ $PBS_O_WORKDIR ] && cd $PBS_O_WORKDIR
 
+if [ -z $SERVICE_DIR ]; then export SERVICE_DIR=`pwd`; fi
+
 if [ $ENV == "IUHPC" ]; then
 	
 	if [ $HPC == "KARST" ]; then
