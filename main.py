@@ -19,7 +19,7 @@ def main():
     # Load the data
     dmri_image = nib.load(config['data_file'])
     dmri = dmri_image.get_data()
-    aparc_im = nib.load(config['data_fs_seg'])
+    aparc_im = nib.load(config['freesurfer'] + '/mri/aparc+aseg.nii.gz')
     aparc = aparc_im.get_data()
     end = time.time()
     print('Loaded Files: ' + str((end - start)))
