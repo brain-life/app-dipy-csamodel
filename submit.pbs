@@ -54,7 +54,7 @@ if [ $ret -ne 0 ]; then
     echo $ret > finished
     exit $ret
 fi
-if [ -s csa_peaks.pam5 ];
+if [ -s peaks.pam5 ];
 then 
 	echo 0 > finished
 else 
