@@ -1,6 +1,8 @@
 config1.json
+config.json
 *~
 .idea/*
 .DS_Store
 +finished
 +volume.nii.gz
+
