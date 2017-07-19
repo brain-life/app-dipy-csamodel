@@ -17,12 +17,10 @@ if [ $ENV == "IUHPC" ]; then
 		module load freesurfer/6.0.0
 	fi
 	if [ $HPC == "CARBONATE" ]; then
-		module unload python
-		module load anaconda/python2.7
 		module load freesurfer/6.0.0
 	fi
 	
-	export PYTHONPATH=/N/u/aryaam/Karst/github_repos/dipy:$PYTHONPATH
+	export PYTHONPATH=/N/u/brlife/Karst/git/dipy:$PYTHONPATH
 	export PYTHONPATH=/N/u/aryaam/Karst/github_repos/nibabel:$PYTHONPATH
 fi
 
