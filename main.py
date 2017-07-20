@@ -2,6 +2,7 @@ import time
 import numpy as np
 import nibabel as nib
 import json
+import dipy
 import os, sys
 from dipy.core.gradients import gradient_table
 from dipy.io.gradients import read_bvals_bvecs
@@ -55,4 +56,5 @@ def main():
     print('Generated peaks: ' +  str(time.time() - start))
     save_peaks('peaks.pam5', csa_peaks)
 
+print(dipy.__version__)
 main()
