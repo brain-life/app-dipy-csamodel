@@ -57,5 +57,4 @@ def main():
     print('Generated peaks: ' +  str(time.time() - start))
     save_peaks('peaks.pam5', csa_peaks)
 
-print(dipy.__version__)
 main()

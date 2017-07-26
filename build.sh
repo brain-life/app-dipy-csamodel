@@ -1,1 +1,1 @@
-docker build . -t app-dipy-csamodel
+docker build . -t aarya22/app-dipy-csamodel
