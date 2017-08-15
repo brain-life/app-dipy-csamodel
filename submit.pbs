@@ -30,19 +30,25 @@ if [ $ENV == "VM" ]; then
 fi
 
 input_nii_gz=`$SERVICE_DIR/jq -r .data_file config.json`
-data_seg=`$SERVICE_DIR/jq -r .freesurfer config.json`
+data_seg=`$SERVICE_DIR/jq -r .data_fs_seg config.json`
 
-echo "converting freesurfer segments to volume"
-echo mri_label2vol \
-	--seg $data_seg/mri/aparc+aseg.mgz \
-	--regheader $data_seg/mri/aparc+aseg.mgz \
-	--temp $input_nii_gz \
-	--o volume.nii.gz
-mri_label2vol \
-	--seg $data_seg/mri/aparc+aseg.mgz \
-	--regheader $data_seg/mri/aparc+aseg.mgz \
-	--temp $input_nii_gz \
-	--o volume.nii.gz
+if [ ! -f volume.nii.gz ]; then
+	echo "converting freesurfer segments to volume $input_nii_gz $data_seg"
+	echo mri_label2vol \
+		--seg $data_seg/mri/aparc+aseg.mgz \
+		--regheader $data_seg/mri/aparc+aseg.mgz \
+		--temp $input_nii_gz \
+		--o volume.nii.gz
+	mri_label2vol \
+		--seg $data_seg/mri/aparc+aseg.mgz \
+		--regheader $data_seg/mri/aparc+aseg.mgz \
+		--temp $input_nii_gz \
+		--o volume.nii.gz
+	if [ ! $? -eq 0 ]; then
+		echo "failed to mri_label2vol"
+		exit 1
+	fi
+fi
 
 echo "running main"
 time python $SERVICE_DIR/main.py
