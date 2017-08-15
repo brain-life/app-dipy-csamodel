@@ -30,18 +30,18 @@ if [ $ENV == "VM" ]; then
 fi
 
 input_nii_gz=`$SERVICE_DIR/jq -r .data_file config.json`
-data_seg=`$SERVICE_DIR/jq -r .data_fs_seg config.json`
+freesurfer=`$SERVICE_DIR/jq -r .freesurfer config.json`
 
 if [ ! -f volume.nii.gz ]; then
-	echo "converting freesurfer segments to volume $input_nii_gz $data_seg"
+	echo "converting freesurfer segments $freesufer to volume using $input_nii_gz"
 	echo mri_label2vol \
-		--seg $data_seg/mri/aparc+aseg.mgz \
-		--regheader $data_seg/mri/aparc+aseg.mgz \
+		--seg $freesurfer/mri/aparc+aseg.mgz \
+		--regheader $freesurfer/mri/aparc+aseg.mgz \
 		--temp $input_nii_gz \
 		--o volume.nii.gz
 	mri_label2vol \
-		--seg $data_seg/mri/aparc+aseg.mgz \
-		--regheader $data_seg/mri/aparc+aseg.mgz \
+		--seg $freesurfer/mri/aparc+aseg.mgz \
+		--regheader $freesurfer/mri/aparc+aseg.mgz \
 		--temp $input_nii_gz \
 		--o volume.nii.gz
 	if [ ! $? -eq 0 ]; then
